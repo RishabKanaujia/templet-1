@@ -18,12 +18,11 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+ background-image: url('https://rishi.qviq.io/_next/static/media/template22.70c0950c.jpg');
+ background-size: cover;
+ background-repeat: no-repeat;
+ background-attachment: fixed;
+ 
 }
 
 @layer utilities {
@@ -31,3 +30,12 @@ body {
     text-wrap: balance;
   }
 }
+
+.btn-shadow{
+  box-shadow:black 3px 3px 0px 1px;
+}
+
+.btn-shadow-white{
+  box-shadow:#B1B6AD 2px 3px 0px 1px;
+}
+

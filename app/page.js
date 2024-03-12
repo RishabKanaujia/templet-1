@@ -1,113 +1,107 @@
-import Image from "next/image";
+"use client";
+import { SocialMediaHandle } from "./_components/socialMediaHandle";
+import Title from "./_components/title";
+import ProductHolder from "./_components/productHolder";
+import { BsTelephone } from "react-icons/bs";
+import {
+  FaFacebook,
+  FaWhatsapp,
+  FaTelegramPlane,
+  FaAmazon,
+} from "react-icons/fa";
+import ProductPop from "./_components/productHolder/productPopUp";
+import { useState } from "react";
 
 export default function Home() {
+  const [popIndex, setPopIndex] = useState(null)
+  const iconList = [
+    FaFacebook,
+    FaWhatsapp,
+    FaTelegramPlane,
+    FaAmazon,
+    FaFacebook,
+    FaWhatsapp,
+    FaTelegramPlane,
+    FaAmazon,
+    FaTelegramPlane,
+    FaAmazon,
+    FaWhatsapp,
+    FaTelegramPlane,
+    FaAmazon,
+    FaFacebook,
+    FaWhatsapp,
+    FaTelegramPlane,
+    FaAmazon,
+    FaTelegramPlane,
+    FaAmazon,
+  ];
+  const btnList = [
+    { title: "title", src: "https://source.unsplash.com/720x720/?face" },
+    { title: "title", src: "https://source.unsplash.com/720x720/?face" },
+    { title: "title", src: "https://source.unsplash.com/720x720/?face" },
+    { title: "title", src: "https://source.unsplash.com/720x720/?face" },
+  ];
+
+  const productList = [
+    {
+      src: "https://rishi.qviq.io/_next/static/media/image1.c8c31ee3.jpg",
+      title: "Product name goes here. It can be a two line text",
+      price: "₹ 299",
+    },
+    {
+      src: "https://rishi.qviq.io/_next/static/media/image1.c8c31ee3.jpg",
+      title: "Product name goes here. It can be a two line text",
+      price: "₹ 299",
+    },
+    {
+      src: "https://rishi.qviq.io/_next/static/media/image1.c8c31ee3.jpg",
+      title: "Product name goes here. It can be a two line text",
+      price: "₹ 299",
+    },
+    {
+      src: "https://rishi.qviq.io/_next/static/media/image1.c8c31ee3.jpg",
+      title: "Product name goes here. It can be a two line text",
+      price: "₹ 299",
+    },
+  ];
+
+  const onProductClick = (index) => {
+    setPopIndex(index)
+  };
+
+  const closePop = ()=>{
+    setPopIndex(null)
+  }
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
+    <>
+      <div className="flex max-w-[720px] flex-col  w-[90%] justify-center  mx-auto mt-[60px] ">
+        <div className="backdrop-blur-[20px] my-[50px] w-full flex justify-center rounded-t-full rounded-b-[400px]">
+          <div className="flex w-[80%] flex-col items-center h-[500px] my-[-60px] z-0">
+            <img
+              src="https://rishi.qviq.io/_next/static/media/image11.b13b6574.jpg"
+              className="h-[120px] w-[120px] rounded-full "
+              alt=""
             />
-          </a>
+            <h1 className="text-[1.4em] my-5 font-semibold">Ester Howard</h1>
+            <p>Digital Product Designer</p>
+            <p>Qviq</p>
+            <p className="text-center">
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+              accusantium doloremque laudantium, to
+            </p>
+            <button className="flex justify-center items-center gap-3 my-[60px] w-[40%] font-bold p-[20px] btn-shadow shadow hover:shadow-none rounded-full hover:cursor-pointer text-black border-black bg-white">
+              <BsTelephone />
+              Get in touch
+            </button>
+          </div>
         </div>
+        <SocialMediaHandle iconList={iconList} />
+        <Title btnList={btnList} />
       </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      <div className="mx-auto my-[50px] bg-white max-w-[1000px] w-[100%] h-[2000px] rounded-[20px] ">
+        <ProductHolder onProductClick={onProductClick} productList={productList} />
+      {popIndex!==null && <ProductPop closePop={closePop} proData={productList[popIndex]} />}
       </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    </>
   );
 }
