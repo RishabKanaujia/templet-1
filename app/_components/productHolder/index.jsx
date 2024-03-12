@@ -13,7 +13,7 @@ const ProductHolder = ({ productList,onProductClick }) => {
         {" "}
         <div className="flex w-fit overflow-hidden p-[30px] gap-5 text-black font-semibold">
           {productList.map((item,index) => {
-            return <Product index={index} onProductClick={onProductClick} proData={item} />;
+            return <Product key={index} index={index} onProductClick={onProductClick} proData={item} />;
           })}
         </div>
       </div>

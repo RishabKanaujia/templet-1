@@ -14,8 +14,8 @@ export const SocialMediaHandle = ({ iconList }) => {
   return (
     <>
     <div className="flex h-fit py-7 px-7 justify-center flex-wrap gap-5 backdrop-blur-[20px] w-full rounded-[20px] ">
-      {currentIconList.map((icon) => {
-        return <MediaBtn Icon={icon} />;
+      {currentIconList.map((icon,index) => {
+        return <MediaBtn key={index} Icon={icon} />;
       })}
      
     </div>
