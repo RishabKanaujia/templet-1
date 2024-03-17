@@ -39,3 +39,16 @@ body {
   box-shadow:#B1B6AD 2px 3px 0px 1px;
 }
 
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}

@@ -1,21 +1,65 @@
 "use client";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Product from "./product";
 
-const ProductHolder = ({ productList,onProductClick }) => {
+const ProductHolder = ({ productList, onProductClick }) => {
+  const [isLeft, setIsLeft] = useState(true);
+  const scroll = useRef(null);
+
+  useEffect(() => {
+    if (isLeft) {
+      // scroll.current.scrollLeft = 0;
+      scroll.current.scrollTo({
+        left: 0,
+        behavior: 'smooth'
+      });
+    } else {
+      scroll.current.scrollTo({
+        left:scroll.current.scrollWidth,
+        behavior: 'smooth'
+      }); 
+    }
+  });
+  const swipe = () => {
+    setIsLeft(!isLeft);
+  };
   return (
     <>
-      <div className="flex justify-start p-[30px] gap-3">
-        <h1 className="text-[2em] text-black font-semibold">Prodcts</h1>
-        <h1 className="text-[2em] text-black font-semibold">Services</h1>
-      </div>
-      <div className="overflow-hidden w-full">
-        {" "}
-        <div className="flex w-fit overflow-hidden p-[30px] gap-5 text-black font-semibold">
-          {productList.map((item,index) => {
-            return <Product key={index} index={index} onProductClick={onProductClick} proData={item} />;
-          })}
+      <div className="relative">
+        <div
+          className="overflow-scroll scrollbar-hide w-full"
+          ref={scroll}
+        >
+          <div
+            className={`flex w-fit p-[30px] gap-5 text-black font-semibold`}
+          >
+            {productList.map((item, index) => {
+              return (
+                <Product
+                  key={index}
+                  index={index}
+                  onProductClick={onProductClick}
+                  proData={item}
+                />
+              );
+            })}
+          </div>
         </div>
+        {!isLeft ? (
+          <button
+            className="bg-white text-black border border-black btn-shadow w-[60px] h-[60px] rounded-full left-2 top-[40%] absolute"
+            onClick={swipe}
+          >
+            {"<"}
+          </button>
+        ) : (
+          <button
+            className="bg-white text-black border border-black btn-shadow w-[60px] h-[60px] rounded-full right-2 top-[40%] absolute"
+            onClick={swipe}
+          >
+            {">"}
+          </button>
+        )}
       </div>
     </>
   );
