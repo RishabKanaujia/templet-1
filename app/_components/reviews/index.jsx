@@ -1,8 +1,8 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import ServiceBox from "./serviceBox";
+import ReviewBox from "./reviewsBox";
 
-const ServiceHolder = ({ serviceList }) => {
+const Review = ({ ReviewList }) => {
   const [isLeft, setIsLeft] = useState(true);
   const scroll = useRef(null);
 
@@ -26,9 +26,9 @@ const ServiceHolder = ({ serviceList }) => {
   return (
     <div className="relative">
       <div className="overflow-scroll scrollbar-hide w-[60rem]" ref={scroll}>
-        <div className="flex justify-start mx-6 gap-5 h-[20rem]">
-          {serviceList.map((item, index) => {
-            return <ServiceBox key={index} props={item} />;
+        <div className="flex justify-start mx-6 gap-5 h-[17rem]">
+          {ReviewList.map((item, index) => {
+            return <ReviewBox key={index} props={item} />;
           })}
         </div>
       </div>
@@ -48,8 +48,10 @@ const ServiceHolder = ({ serviceList }) => {
           {">"}
         </button>
       )}
+
+      
     </div>
   );
 };
 
-export default ServiceHolder;
+export default Review;

@@ -9,7 +9,7 @@ const [isPopContact, setIsPopContact] = useState(false)
     setIsPopContact(true)
   };
 
-   document.body.style.overflow = isPopContact?"hidden":"auto"
+  //  document.body.style.overflow = isPopContact?"hidden":"auto"
 
   return (
     <>

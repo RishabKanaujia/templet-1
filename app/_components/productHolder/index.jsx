@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Product from "./product";
 
+
 const ProductHolder = ({ productList, onProductClick }) => {
   const [isLeft, setIsLeft] = useState(true);
   const scroll = useRef(null);
@@ -27,7 +28,7 @@ const ProductHolder = ({ productList, onProductClick }) => {
     <>
       <div className="relative">
         <div
-          className="overflow-scroll scrollbar-hide w-full"
+          className="overflow-scroll scrollbar-hide w-[60rem]"
           ref={scroll}
         >
           <div
@@ -60,6 +61,7 @@ const ProductHolder = ({ productList, onProductClick }) => {
             {">"}
           </button>
         )}
+        
       </div>
     </>
   );

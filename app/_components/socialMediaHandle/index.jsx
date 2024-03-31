@@ -22,6 +22,7 @@ export const SocialMediaHandle = ({ iconList }) => {
     <button className="flex items-center justify-center bg-black rounded-full mx-auto my-[-15px] z-20 w-[30px] h-[30px]" onClick={dropDown}>
     {isDrop?<IoIosArrowUp />:<IoIosArrowDown/>}
       </button>
+      
     </>
   );
 };
